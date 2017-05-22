@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Collection</title>
+</head>
+<body>
+{% if all_albums %}
+<h3>Here are all my Albums:</h3>
+<ul>
+    {%for album in all_albums%}
+    <!--Here all_albums is a collection of objects and album impersonates each object in all_albums. This is why album.id and album.album_title make sense-->
+    <li><a href="/music/{{album.id}}">{{album.album_title}}</a></li>
+    {%endfor%}
+</ul>
+{% else %}
+<h3>You don't have any albums</h3>
+{% endif %}
+</body>
+</html>
